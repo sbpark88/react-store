@@ -18,8 +18,7 @@ const ProductMain: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchProducts().catch((error) => console.error(error));
-    console.log(products);
+    const _ = fetchProducts();
   }, []);
 
   return (

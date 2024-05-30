@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { OrderContext } from "./context/OrderContext";
 
 async function enableMocking() {
   if (process.env.NODE_ENV !== "development") return;
@@ -18,7 +19,9 @@ const root = ReactDOM.createRoot(
 enableMocking().then(() => {
   root.render(
     <React.StrictMode>
-      <App />
+      <OrderContext.Provider value={null}>
+        <App />
+      </OrderContext.Provider>
     </React.StrictMode>,
   );
 });
