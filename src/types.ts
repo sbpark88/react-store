@@ -1,8 +1,9 @@
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
-export interface ChildrenComponent {
-  children?: ReactNode;
+export interface OuterComponent {
+  children?: ReactElement | null;
 }
+
 export interface ChildrenComponent {
   children?: ReactNode;
 }

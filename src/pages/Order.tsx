@@ -1,10 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext } from "react";
 import styled from "styled-components";
 import ProductMain from "../components/ProductMain";
 import ProductOption from "../components/ProductOption";
+import { OrderContext } from "../context/OrderContext";
+import { useNavigate } from "react-router-dom";
 
 const Order: React.FC = () => {
-  const [orderInfo, setOrderInfo] = useState();
+  const { totals } = useContext(OrderContext);
+  const navigate = useNavigate();
 
   const makeOrder = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {},
@@ -22,8 +25,8 @@ const Order: React.FC = () => {
           <ProductOption />
         </FlexItem>
         <FlexItem>
-          <h2>Total Price: </h2>
-          <button onClick={makeOrder}>주문</button>
+          <h2>Total Price: ￦{totals.total.toLocaleString()}</h2>
+          <button onClick={() => navigate("/summary")}>주문</button>
         </FlexItem>
       </Flex>
     </Wrapper>

@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { OrderContext } from "./context/OrderContext";
+import { OrderContextProvider } from "./context/OrderContext";
+import { BrowserRouter } from "react-router-dom";
 
 async function enableMocking() {
   if (process.env.NODE_ENV !== "development") return;
@@ -19,9 +20,11 @@ const root = ReactDOM.createRoot(
 enableMocking().then(() => {
   root.render(
     <React.StrictMode>
-      <OrderContext.Provider value={null}>
-        <App />
-      </OrderContext.Provider>
+      <BrowserRouter>
+        <OrderContextProvider>
+          <App />
+        </OrderContextProvider>
+      </BrowserRouter>
     </React.StrictMode>,
   );
 });
