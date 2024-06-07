@@ -1,17 +1,13 @@
 import React from "react";
 import "./App.css";
+import Counter from "./components/Counter";
+import Todo from "./components/Todo";
 
-interface Props {
-  value: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
-}
-
-function App({ value, onIncrement, onDecrement }: Props) {
+function App() {
   return (
     <div className="App">
-      Clicked: {value} times <button onClick={onIncrement}>+</button>{" "}
-      <button onClick={onDecrement}>-</button>
+      <Counter />
+      <Todo />
     </div>
   );
 }

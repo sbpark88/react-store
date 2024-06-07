@@ -1,8 +1,12 @@
-const counterReducer = (state = 0, action: { type: string }) => {
+interface Action {
+  type: string;
+}
+
+const counterReducer = (state = 0, action: Action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case "counter/increment":
       return state + 1;
-    case "DECREMENT":
+    case "counter/decrement":
       return state - 1;
     default:
       return state;
