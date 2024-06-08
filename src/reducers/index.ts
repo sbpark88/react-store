@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import counterReducer from "./counter";
 import todosReducer from "./todos";
-import postsReducer from "./post";
+import postsReducer from "./posts";
 
 const rootReducer = combineReducers({
   counter: counterReducer,
