@@ -1,12 +1,14 @@
 import React from "react";
-import store from "../store";
+import { RootState } from "../store";
 import "./Counter.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Counter: React.FC = () => {
-  const { counter } = store.getState();
+  const counter = useSelector((state: RootState) => state.counter);
+  const dispatch = useDispatch();
 
-  const onIncrement = () => store.dispatch({ type: "counter/increment" });
-  const onDecrement = () => store.dispatch({ type: "counter/decrement" });
+  const onIncrement = () => dispatch({ type: "counter/increment" });
+  const onDecrement = () => dispatch({ type: "counter/decrement" });
 
   return (
     <div className="counter-container">
