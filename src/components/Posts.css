@@ -1,0 +1,12 @@
+.post {
+  text-align: left;
+  background-color: #eae2e2;
+  border: 1px solid #eae2e2;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  p {
+    margin: 0;
+  }
+}
