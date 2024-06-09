@@ -1,20 +1,7 @@
-import {
-  applyMiddleware,
-  legacy_createStore as createStore,
-  Middleware,
-} from "redux";
+import { createStore } from "redux";
 import rootReducer from "./reducers";
 
-const logger: Middleware = (store) => (next) => (action) => {
-  console.log("dispatching", action);
-  let result = next(action);
-  console.log("next state", store.getState());
-  return result;
-};
-
-const middleware = applyMiddleware(logger);
-
-const store = createStore(rootReducer, undefined, middleware);
+const store = createStore(rootReducer);
 
 export default store;
 
