@@ -1,12 +1,10 @@
 import React, { useCallback, useState } from "react";
 import "./Todo.css";
-import { RootState } from "../store";
-import { useDispatch, useSelector } from "react-redux";
+import store from "../store";
 
 const Todo: React.FC = () => {
-  const todos = useSelector((state: RootState) => state.todos);
+  const { todos } = store.getState();
   const [text, setText] = useState<string>("");
-  const dispatch = useDispatch();
   const onInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setText(event.target.value);
@@ -16,7 +14,7 @@ const Todo: React.FC = () => {
 
   const todoAdd = () => {
     if (text?.trim() === "") return;
-    dispatch({ type: "todos/todoAdded", text });
+    store.dispatch({ type: "todos/todoAdded", text });
     setText("");
   };
 
@@ -39,9 +37,8 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ text }) => {
-  const dispatch = useDispatch();
   const deleteTodo = () => {
-    dispatch({ type: "todos/todoDeleted", text });
+    store.dispatch({ type: "todos/todoDeleted", text });
   };
 
   return (
