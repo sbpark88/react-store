@@ -1,12 +1,9 @@
 import {
   applyMiddleware,
-  compose,
   legacy_createStore as createStore,
   Middleware,
-  StoreEnhancer,
 } from "redux";
 import rootReducer from "./reducers";
-import DevTools from "./containers/DevTools";
 
 const logger: Middleware = (store) => (next) => (action) => {
   console.log("dispatching", action);
@@ -17,9 +14,7 @@ const logger: Middleware = (store) => (next) => (action) => {
 
 const middleware = applyMiddleware(logger);
 
-const enhancer: StoreEnhancer = compose(middleware, DevTools.instrument());
-
-const store = createStore(rootReducer, undefined, enhancer);
+const store = createStore(rootReducer, undefined, middleware);
 
 export default store;
 

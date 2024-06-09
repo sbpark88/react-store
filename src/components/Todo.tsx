@@ -16,7 +16,7 @@ const Todo: React.FC = () => {
 
   const todoAdd = () => {
     if (text?.trim() === "") return;
-    dispatch({ type: "todos/todoAdded", payload: { text } });
+    dispatch({ type: "todos/todoAdded", text });
     setText("");
   };
 
@@ -41,7 +41,7 @@ interface ItemProps {
 const Item: React.FC<ItemProps> = ({ text }) => {
   const dispatch = useDispatch();
   const deleteTodo = () => {
-    dispatch({ type: "todos/todoDeleted", payload: { text } });
+    dispatch({ type: "todos/todoDeleted", text });
   };
 
   return (

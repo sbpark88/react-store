@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import App from "./App";
 import store from "./store";
-import Root from "./Root";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -10,9 +11,11 @@ const root = ReactDOM.createRoot(
 
 const render = () =>
   root.render(
-    <React.Fragment>
-      <Root />
-    </React.Fragment>,
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
   );
 
 render();

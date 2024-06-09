@@ -5,7 +5,7 @@ enum ActionType {
 
 interface Action {
   type: ActionType;
-  payload: { text: string };
+  text: string;
 }
 
 const initialSate: string[] = [];
@@ -13,9 +13,9 @@ const initialSate: string[] = [];
 const todosReducer = (state = initialSate, action: Action) => {
   switch (action.type) {
     case ActionType.ADD:
-      return [...state, action.payload.text];
+      return [...state, action.text];
     case ActionType.DELETE:
-      return state.filter((todo) => todo !== action.payload.text);
+      return state.filter((todo) => todo !== action.text);
     default:
       return state;
   }
