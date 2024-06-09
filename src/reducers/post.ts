@@ -3,7 +3,7 @@ enum ActionType {
   DELETE = "posts/delete",
 }
 
-export interface Posts {
+export interface Post {
   id: number;
   userId: number;
   title: string;
@@ -12,10 +12,10 @@ export interface Posts {
 
 interface Action {
   type: ActionType;
-  payload: Posts[];
+  payload: Post[];
 }
 
-const initialState: Posts[] = [];
+const initialState: Post[] = [];
 
 const postsReducer = (state = initialState, action: Action) => {
   switch (action.type) {
