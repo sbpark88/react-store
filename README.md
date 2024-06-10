@@ -11,3 +11,9 @@ Context, Redux, MobX, Recoil, Zustand 사용법에 대해 각 브랜치에 정�
 - Redux-toolkit 을 사용하지 않은 Redux 사용 예제.
 - React-redux, Redux-devtools, Redux-thunk 설치
 - Redux 의 combineReducers, middleware 사용.
+
+# Redux-toolkit
+
+- Axios 없이 Redux-toolkit 만으로 Store 및 API fetch 사용 예제.
+- 'buildCreateSlice'를 사용해 'createAppSlice'를 구현해 사용.
+- Axios 대신 Redux-toolkit 의 'createApi'를 사용해 구현하고, configureStore 에 middleware 등록.
