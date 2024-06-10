@@ -7,19 +7,11 @@
 }
 
 .todos--item {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
   border: 1px solid #dbebeb;
   padding: 10px 0;
   margin: 10px 0;
 
-  .todos--id {
-    width: 50px;
-    text-align: right;
-    color: #8c8c8c;
-  }
-  .todos--title {
+  div {
     width: 300px;
     text-align: left;
   }
