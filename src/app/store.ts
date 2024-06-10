@@ -2,8 +2,9 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { counterSlice } from "../features/counter/counterSlice";
+import { todoSlice } from "../features/todo/todoSlice";
 
-const rootReducer = combineSlices(counterSlice);
+const rootReducer = combineSlices(counterSlice, todoSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
