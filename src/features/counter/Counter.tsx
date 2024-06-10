@@ -1,19 +1,8 @@
 import React from "react";
-import "./Counter.css";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { decrement, increment, selectCount } from "./counterSlice";
+import "Counter.css";
 
 const Counter: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const count = useAppSelector(selectCount);
-
-  return (
-    <div className="counter-container">
-      Clicked: {count} times
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-    </div>
-  );
+  return <>Counter</>;
 };
 
 export default Counter;
