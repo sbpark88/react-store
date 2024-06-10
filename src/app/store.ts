@@ -3,8 +3,9 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { counterSlice } from "../features/counter/counterSlice";
 import { todoSlice } from "../features/todo/todoSlice";
+import { postsApiSlice } from "../features/posts/postsSlice";
 
-const rootReducer = combineSlices(counterSlice, todoSlice);
+const rootReducer = combineSlices(counterSlice, todoSlice, postsApiSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -12,7 +13,7 @@ export const makeStore = (preloadedState?: Partial<RootState>) => {
   const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat();
+      return getDefaultMiddleware().concat(postsApiSlice.middleware);
     },
     preloadedState,
     devTools: process.env.NODE_ENV !== "production" && true,
