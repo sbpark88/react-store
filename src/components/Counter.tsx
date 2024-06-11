@@ -1,11 +1,13 @@
 import React from "react";
 import "./Counter.css";
 import { observer } from "mobx-react-lite";
-import { useCounterStore } from "../store";
+import CounterStore from "../store/CounterStore";
 
-const Counter: React.FC = () => {
-  const store = useCounterStore();
+interface Props {
+  store: CounterStore;
+}
 
+const Counter: React.FC<Props> = ({ store }) => {
   return (
     <div className="counter-container">
       Clicked: {store.value} time
