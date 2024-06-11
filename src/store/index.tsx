@@ -1,15 +1,12 @@
 import CounterStore from "./CounterStore";
 import React, { createContext, useContext } from "react";
 import { ChildrenComponent } from "../interfaces/CommonProps";
-import TodoStore from "./TodoStore";
 
 class RootStore {
   counterStore: CounterStore;
-  todoStore: TodoStore;
 
   constructor() {
     this.counterStore = new CounterStore();
-    this.todoStore = new TodoStore();
   }
 }
 
@@ -27,10 +24,5 @@ export const StoreContextProvider: React.FC<ChildrenComponent> = ({
 
 export const useCounterStore = () => {
   const { counterStore: store } = useContext(StoreContext);
-  return store;
-};
-
-export const useTodoStore = () => {
-  const { todoStore: store } = useContext(StoreContext);
   return store;
 };
