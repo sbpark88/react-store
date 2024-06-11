@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
 import Counter from "./components/Counter";
-import store from "./store";
+import { StoreContextProvider } from "./store";
 
 function App() {
   return (
     <div className="App">
-      <Counter store={store.counterStore} />
+      <StoreContextProvider>
+        <Counter />
+      </StoreContextProvider>
     </div>
   );
 }
