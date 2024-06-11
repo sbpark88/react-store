@@ -17,3 +17,9 @@ Context, Redux, MobX, Recoil, Zustand 사용법에 대해 각 브랜치에 정�
 - Axios 없이 Redux-toolkit 만으로 Store 및 API fetch 사용 예제.
 - 'buildCreateSlice'를 사용해 'createAppSlice'를 구현해 사용.
 - Axios 대신 Redux-toolkit 의 'createApi'를 사용해 구현하고, configureStore 에 middleware 등록.
+
+# MobX
+
+- observable, computed, action 등 Vue 2 의 Class 컴포넌트를 구성하는 느낌의 스토어 구현.
+- 스토어 구현 및 사용이 쉬움.
+- ContextAPI 결합한 적용.
