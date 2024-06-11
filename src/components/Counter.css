@@ -1,0 +1,7 @@
+.counter-container {
+  border-bottom: 2px solid;
+  padding-bottom: 20px;
+}
+.counter-container button {
+  margin-left: 10px;
+}
