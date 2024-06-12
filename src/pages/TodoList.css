@@ -6,6 +6,11 @@
   }
 }
 
+.todos--controls {
+  display: inline-flex;
+  gap: 10px;
+}
+
 .todos--item {
   display: flex;
   justify-content: center;
@@ -22,5 +27,9 @@
   .todos--title {
     width: 300px;
     text-align: left;
+  }
+  .todos--title.done {
+    text-decoration: line-through;
+    color: #b00;
   }
 }
