@@ -6,6 +6,13 @@
   }
 }
 
+.todos--stats {
+  list-style: none;
+  margin-left: 25%;
+  text-align: left;
+  font-size: 17px;
+}
+
 .todos--controls {
   display: inline-flex;
   gap: 10px;
