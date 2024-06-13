@@ -1,0 +1,42 @@
+.todos-container {
+  margin: 20px 0;
+
+  button {
+    margin-left: 10px;
+  }
+}
+
+.todos--stats {
+  list-style: none;
+  margin-left: 25%;
+  text-align: left;
+  font-size: 17px;
+}
+
+.todos--controls {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.todos--item {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #dbebeb;
+  padding: 10px 0;
+  margin: 10px 0;
+
+  .todos--id {
+    width: 50px;
+    text-align: right;
+    color: #8c8c8c;
+  }
+  .todos--title {
+    width: 300px;
+    text-align: left;
+  }
+  .todos--title.done {
+    text-decoration: line-through;
+    color: #b00;
+  }
+}
