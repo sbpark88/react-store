@@ -5,14 +5,12 @@ import TodoItemCreator from "../components/TodoItemCreator";
 import "./TodoList.css";
 import SelectTodoListFilter from "../components/SelectTodoListFilter";
 import TodoItem from "../components/TodoItemView";
-import TodoListStats from "../components/TodoListStats";
 
 const TodoList: React.FC = () => {
   const todoList = useRecoilValue(filteredTodoListState);
 
   return (
     <section className="todos-container">
-      <TodoListStats />
       <div className="todos--controls">
         <TodoItemCreator />
         <SelectTodoListFilter />
