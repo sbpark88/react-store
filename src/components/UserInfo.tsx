@@ -14,24 +14,19 @@ const UserInfo: React.FC = () => {
   );
 
   return (
-    <>
-      <div className="user-info">
-        <label>사용자 ID:</label>
-        <select className="user--id" value={userId} onChange={onSelectChange}>
-          {Array(11)
-            .fill("")
-            .map((_, index) => (
-              <option key={index + 1} value={index + 1}>
-                {index + 1}
-              </option>
-            ))}
-        </select>
-        <div className="user--name">{userName}</div>
-      </div>
-      <p style={{ textAlign: "right", margin: 0 }}>
-        User ID '11' will be throw asynchronous error
-      </p>
-    </>
+    <div className="user-info">
+      <label>사용자 ID:</label>
+      <select className="user--id" value={userId} onChange={onSelectChange}>
+        {Array(11)
+          .fill("")
+          .map((_, index) => (
+            <option key={index + 1} value={index + 1}>
+              {index + 1}
+            </option>
+          ))}
+      </select>
+      <div className="user--name">{userName}</div>
+    </div>
   );
 };
 
