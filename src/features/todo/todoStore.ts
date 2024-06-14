@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type State = {
   list: TodoItem[];
@@ -14,12 +15,24 @@ export interface TodoItem {
   title: string;
 }
 
-export const useTodoStore = create<State & Actions>((set, get) => ({
-  list: [],
-  addTodo: (title) => set({ list: [...get().list, { id: nextId(), title }] }),
-  deleteTodo: ({ id }) =>
-    set({ list: get().list.filter((todo) => todo.id !== id) }),
-}));
+export const useTodoStore = create<
+  State & Actions,
+  [["zustand/persist", State & Actions]]
+>(
+  persist(
+    (set, get) => ({
+      list: [],
+      addTodo: (title) =>
+        set({ list: [...get().list, { id: nextId(), title }] }),
+      deleteTodo: ({ id }) =>
+        set({ list: get().list.filter((todo) => todo.id !== id) }),
+    }),
+    {
+      name: "todo-storage",
+      storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);
 
 const nextId = (() => {
   let id = 1;
