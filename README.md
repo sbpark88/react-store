@@ -41,3 +41,22 @@ Context, Redux, MobX, Recoil, Zustand 사용법에 대해 각 브랜치에 정�
   다루는 것 뿐 아니라, `Suspense`, `ErrorBoundary`를 대신할 수 있다.
 - 즉, Recoil 을 사용할 때는 `Suspense`, `ErrorBoundary` 대신 `Lodable`을 사용하면 되며,
   `useRecoilValue` 대신 `useRecoilValueLoadable` 훅을 사용하면 된다.
+
+# Zustand
+
+- 라이브러리 자체는 쉽지만 라이브러리의 깃허브 README 를 제외하면 제대로 된 공식 문서가 없을 뿐 아니라
+  코드상 docs 제공이 안 되다보니 IDE 가 제대로 된 자동완성 제안을 하지 못 하는 불편함이 있다.
+- 제대로 된 공식 문서의 부재도 문제지만, IDE 에 제대로 통합되지 못 하는 사용 환경이 더욱 불편함.
+- 공식 문서 대신 볼만한 것은 [Pmndrs.docs] 에서 제공하는 [Pmndrs - Zustand] 문서가 가장 괜찮다.
+- 다른 라이브러리와 달리 스토어에서 비동기 요청을 구현할 경우 Suspense 의 fallback 이 작동하지 않으며,
+  그렇다고 Recoil 의 Loadable 같은 객체를 제공하지도 않는다. 리액트 컴포넌트 내에서 직접 loading, error
+  를 하나의 상태 변수로 만들어 관리해야하며, reset 같은 것도 제공되지 않아 직접 구현해야한다. 러닝커브가
+  적은 대신 기능이 없고 IDE Docs 연동이 잘 안 되어 진짜 러닝커브가 낮은게 맞는지 역전되는 상황이 자주 발생.
+- Persist Middleware 를 사용할 경우, `create<State & Actions, [["zustand/persist", State & Actions]]>`
+  와 같이 `[["zustand/persist", State & Actions]]`를 넣어주어야 한다. 하지만 문서는 JavaScript 를 기준으로
+  작성되었기 때문에 이러한 부분에 대한 가이드가 없다.
+- 크롬 브라우저 디버깅은 Redux devtools 를 사용한다.
+
+
+[Pmndrs.docs]:https://docs.pmnd.rs/
+[Pmndrs - Zustand]:https://docs.pmnd.rs/zustand/getting-started/introduction
