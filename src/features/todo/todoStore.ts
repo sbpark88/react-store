@@ -14,11 +14,12 @@ export interface TodoItem {
   title: string;
 }
 
-export const useTodoStore = create<State & Actions>((set, get) => ({
+export const useTodoStore = create<State & Actions>((set) => ({
   list: [],
-  addTodo: (title) => set({ list: [...get().list, { id: nextId(), title }] }),
+  addTodo: (title) =>
+    set((state) => ({ list: [...state.list, { id: nextId(), title }] })),
   deleteTodo: ({ id }) =>
-    set({ list: get().list.filter((todo) => todo.id !== id) }),
+    set((state) => ({ list: state.list.filter((todo) => todo.id !== id) })),
 }));
 
 const nextId = (() => {

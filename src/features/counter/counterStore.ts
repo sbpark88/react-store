@@ -9,8 +9,8 @@ type Actions = {
   decrement: () => void;
 };
 
-export const useCounterStore = create<State & Actions>((set, get) => ({
+export const useCounterStore = create<State & Actions>((set) => ({
   count: 0,
-  increment: () => set({ count: get().count + 1 }),
-  decrement: () => set({ count: get().count - 1 }),
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
